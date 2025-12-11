@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* Custom CSS variables for your theme (no config file needed!) */
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #00c46a;
+
+  --color-dark--1: #2d3439;
+  --color-dark--2: #42484d;
+  --color-light--1: #aaa;
+  --color-light--2: #ececec;
+  --color-light--3: rgb(214, 222, 224);
+}
+
+/* Example custom utility (if needed) */
+@layer components {
+  .workout--running {
+    @apply border-l-4 border-[--color-brand--2];
+  }
+  .workout--cycling {
+    @apply border-l-4 border-[--color-brand--1];
+  }
+}
