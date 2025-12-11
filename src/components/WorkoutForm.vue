@@ -4,16 +4,16 @@ import { useWorkoutStore, type Workout } from '@/stores/useWorkouts'
 
 const store = useWorkoutStore()
 
+// INJECT MAPVIEW REF FROM APP.VUE
+const mapViewRef = inject('mapViewRef') as any
+
 const type = ref<'running' | 'cycling'>('running')
 const distance = ref('')
 const duration = ref('')
 const cadence = ref('')
 const elevation = ref('')
-const mapEvent = ref<any>(null) // Will be set when user clicks map
+const mapEvent = ref<any>(null)
 
-const mapViewRef = inject('mapViewRef') as any  
-
-// Emit from MapView when clicked
 const emit = defineEmits(['mapClick'])
 
 defineExpose({
@@ -24,7 +24,7 @@ defineExpose({
     duration.value = ''
     cadence.value = ''
     elevation.value = ''
-    setTimeout(() => distance.value && (document.querySelector('input[placeholder="km"]') as HTMLElement)?.focus(), 100)
+    setTimeout(() => (document.querySelector('input[placeholder="km"]') as HTMLElement)?.focus(), 100)
   },
   hideForm() {
     isVisible.value = false
@@ -84,13 +84,9 @@ const submit = () => {
   }
 
   store.addWorkout(workout)
-  // call renderMarker only if it's provided on the store (cast to any to satisfy TS)
-  // const maybeRender = (store as any).renderMarker
-  // if (typeof maybeRender === 'function') maybeRender(workout)
-  // store.map?.closePopup()
-  // isVisible.value = false
 
-  mapViewRef.value?.renderMarker(workout)
+  // FIXED: CALL RENDERMARKER VIA INJECTED REF
+  mapViewRef?.value?.renderMarker(workout)
 
   store.map?.closePopup()
   isVisible.value = false
@@ -106,10 +102,7 @@ const submit = () => {
   >
     <div class="flex items-center gap-4">
       <label class="text-sm font-semibold w-20">Type</label>
-      <select
-        v-model="type"
-        class="bg-[#d6dee0] text-gray-800 px-3 py-2 rounded text-sm flex-1"
-      >
+      <select v-model="type" class="bg-[#d6dee0] text-gray-800 px-3 py-2 rounded text-sm flex-1">
         <option value="running">Running</option>
         <option value="cycling">Cycling</option>
       </select>
