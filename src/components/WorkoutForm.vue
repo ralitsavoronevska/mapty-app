@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import { ref, computed, inject } from 'vue'
+import { ref, computed } from 'vue'
 import { useWorkoutStore, type Workout } from '@/stores/useWorkouts'
 
 const store = useWorkoutStore()
-
-// INJECT MAPVIEW REF FROM APP.VUE
-const mapViewRef = inject('mapViewRef') as any
 
 const type = ref<'running' | 'cycling'>('running')
 const distance = ref('')
@@ -85,9 +82,6 @@ const submit = () => {
 
   store.addWorkout(workout)
 
-  // FIXED: CALL RENDERMARKER VIA INJECTED REF
-  mapViewRef?.value?.renderMarker(workout)
-
   store.map?.closePopup()
   isVisible.value = false
 }
@@ -101,53 +95,57 @@ const submit = () => {
     style="grid-template-columns: 1fr 1fr; gap: 0.5rem 2.5rem; display: grid"
   >
     <div class="flex items-center gap-4">
-      <label class="text-sm font-semibold w-20">Type</label>
-      <select v-model="type" class="bg-[#d6dee0] text-gray-800 px-3 py-2 rounded text-sm flex-1">
+      <label for="type" class="text-sm font-semibold w-15">Type</label>
+      <select id="type" v-model="type" class="bg-[#d6dee0] text-gray-800 px-3 py-2 rounded text-sm w-25">
         <option value="running">Running</option>
         <option value="cycling">Cycling</option>
       </select>
     </div>
 
     <div class="flex items-center gap-4">
-      <label class="text-sm font-semibold w-20">Distance</label>
+      <label for="distance" class="text-sm font-semibold w-15">Distance</label>
       <input
+        id="distance"
         v-model="distance"
         type="number"
         placeholder="km"
         step="0.1"
-        class="bg-[#d6dee0] text-gray-800 px-3 py-2 rounded text-sm flex-1"
+        class="bg-[#d6dee0] text-gray-800 px-3 py-2 rounded text-sm w-25"
         required
       />
     </div>
 
     <div class="flex items-center gap-4">
-      <label class="text-sm font-semibold w-20">Duration</label>
+      <label for="duration" class="text-sm font-semibold w-15">Duration</label>
       <input
+        id="duration"
         v-model="duration"
         type="number"
         placeholder="min"
-        class="bg-[#d6dee0] text-gray-800 px-3 py-2 rounded text-sm flex-1"
+        class="bg-[#d6dee0] text-gray-800 px-3 py-2 rounded text-sm w-25"
         required
       />
     </div>
 
     <div class="flex items-center gap-4" v-show="showCadence">
-      <label class="text-sm font-semibold w-20">Cadence</label>
+      <label for="cadence" class="text-sm font-semibold w-15">Cadence</label>
       <input
+        id="cadence"
         v-model="cadence"
         type="number"
         placeholder="step/min"
-        class="bg-[#d6dee0] text-gray-800 px-3 py-2 rounded text-sm flex-1"
+        class="bg-[#d6dee0] text-gray-800 px-3 py-2 rounded text-sm w-25"
       />
     </div>
 
     <div class="flex items-center gap-4" v-show="showElevation">
-      <label class="text-sm font-semibold w-20">Elev. Gain</label>
+      <label for="elevation" class="text-sm font-semibold w-15">Elev. Gain</label>
       <input
+        id="elevation"
         v-model="elevation"
         type="number"
         placeholder="meters"
-        class="bg-[#d6dee0] text-gray-800 px-3 py-2 rounded text-sm flex-1"
+        class="bg-[#d6dee0] text-gray-800 px-3 py-2 rounded text-sm w-25"
       />
     </div>
 

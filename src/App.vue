@@ -24,7 +24,7 @@ onMounted(() => {
 
 <template>
   <div class="flex h-screen bg-gray-900 text-white">
-    <aside class="w-180 bg-[#2d3439] p-8 flex flex-col overflow-hidden">
+    <aside class="w-125 bg-[#2d3439] p-8 flex flex-col overflow-hidden">
       <img src="/logo.png" alt="Mapty" class="h-14 mx-auto mb-8" />
       <WorkoutForm ref="formRef" />
       <WorkoutList />

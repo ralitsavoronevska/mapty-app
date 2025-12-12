@@ -23,31 +23,31 @@ const moveToWorkout = (workout: any) => {
     >
       <h2 class="text-lg font-bold text-white mb-3">{{ workout.description }}</h2>
       
-      <div class="grid grid-cols-2 gap-3 text-sm">
+      <div class="flex justify-between text-sm">
         <div class="flex items-center gap-2">
-          <span>{{ workout.type === 'running' ? 'Running' : 'Cycling' }}</span>
+          <span>{{ workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️' }}</span>
           <span class="font-bold">{{ workout.distance }} km</span>
         </div>
         <div class="flex items-center gap-2">
-          <span>Clock</span>
+          <span>⏱</span>
           <span class="font-bold">{{ workout.duration }} min</span>
         </div>
         
         <div class="flex items-center gap-2" v-if="workout.type === 'running'">
-          <span>Lightning</span>
+          <span>⚡️</span>
           <span class="font-bold">{{ workout.pace }} min/km</span>
         </div>
         <div class="flex items-center gap-2" v-if="workout.type === 'cycling'">
-          <span>Lightning</span>
+          <span>⚡️</span>
           <span class="font-bold">{{ workout.speed }} km/h</span>
         </div>
         
         <div class="flex items-center gap-2" v-if="workout.cadence">
-          <span>Footprints</span>
+          <span>🦶🏼</span>
           <span class="font-bold">{{ workout.cadence }} spm</span>
         </div>
         <div class="flex items-center gap-2" v-if="workout.elevationGain">
-          <span>Mountain</span>
+          <span>⛰</span>
           <span class="font-bold">{{ workout.elevationGain }} m</span>
         </div>
       </div>
