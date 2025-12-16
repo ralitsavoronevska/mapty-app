@@ -27,14 +27,19 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" sizes="20x30" href="assets/favicon.ico">
 
-    <!-- Preconnect to tile domain — EARLY for fast map tiles -->
+    <!-- Preconnect to tile servers (faster tile loading) -->
     <link rel="preconnect" href="https://a.tile.openstreetmap.org">
     <link rel="preconnect" href="https://b.tile.openstreetmap.org">
     <link rel="preconnect" href="https://c.tile.openstreetmap.org">
 
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!-- Defer Leaflet JS if possible -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+
     <!-- Preload Critical Above-Fold Resources -->
     <link rel="preload" href="assets/logo.png" as="image" type="image/png" fetchpriority="high">
-    <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
     <!-- Noscript Fallback for Font -->
     <noscript>
