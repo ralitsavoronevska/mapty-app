@@ -1,0 +1,119 @@
+@import 'tailwindcss';
+
+:root {
+  --brand-1: #ffb545;
+  --brand-2: #00c46a;
+  --brand-3: #3b82f6;
+
+  --dark-1: #2d3439;
+  --dark-2: #42484d;
+  --dark-3: #525960;
+}
+
+@layer utilities {
+  .scrollbar-custom::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    @apply bg-(--dark-1) border-3 border-transparent;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    @apply bg-(--brand-2) rounded-md;
+  }
+}
+
+@layer components {
+  main {
+    @apply flex flex-col h-screen bg-gray-900 text-white lg:flex-row overflow-hidden;
+  }
+
+  aside {
+    @apply w-full bg-(--dark-1) p-3 flex flex-col overflow-y-auto lg:w-125 lg:p-8 lg:h-full;
+  }
+
+  .logo {
+    @apply h-10 mx-auto mb-3 md:h-14;
+  }
+
+  form {
+    @apply bg-(--dark-2) rounded-lg p-2 md:p-4 mb-3 transition-all duration-500;
+  }
+
+  .form-field {
+    @apply flex items-center gap-2 md:gap-4 mb-2;
+  }
+
+  label {
+    @apply text-xs md:text-sm font-semibold w-13 min-w-12 md:w-22 lg:w-18;
+  }
+
+  select,
+  input {
+    @apply bg-white text-gray-800 px-3 py-2 rounded focus:ring-2 focus:ring-offset-2 focus:outline-green-400 text-xs md:text-sm w-22 md:w-50 lg:w-25;
+  }
+
+  .submit-btn {
+    @apply text-xs md:text-sm col-span-2 bg-green-500 hover:bg-green-600 disabled:bg-gray-600 text-white font-bold py-1 md:py-2 rounded-lg transition;
+  }
+
+  .workouts-list {
+    @apply max-h-[20vh] md:max-h-[15vh] xl:max-h-[80vh] overflow-y-auto space-y-2 flex-1;
+  }
+
+  .workout-item {
+    @apply bg-(--dark-2) rounded-lg p-3 cursor-pointer hover:bg-(--dark-3) transition;
+  }
+
+  .clear-all-workouts {
+    @apply text-xs md:text-lg mt-3 bg-red-600 hover:bg-red-700 text-white font-bold py-1 lg:py-3 lg:px-6 rounded-lg transition;
+  }
+
+  .map-view-container {
+    @apply flex-1 relative;
+  }
+
+  .map-view-component {
+    @apply absolute inset-0;
+  }
+
+  .map-view-content {
+    @apply h-full w-full;
+  }
+
+  .my-location-btn {
+    @apply absolute bottom-12 md:bottom-4 right-4 z-1000 bg-(--dark-1) shadow-lg rounded-full p-3 hover:bg-(--dark-2) transition;
+  }
+
+  .my-location-svg {
+    @apply h-6 w-6 text-(--brand-2);
+  }
+
+  .permanent-workout-popup .leaflet-popup-content-wrapper,
+  .you-are-here-popup .leaflet-popup-content-wrapper,
+  .permanent-workout-popup .leaflet-popup-tip,
+  .you-are-here-popup .leaflet-popup-tip {
+    @apply bg-(--dark-2)! text-white!;
+  }
+
+  .permanent-workout-popup .leaflet-popup-content-wrapper {
+    @apply text-xs font-semibold shadow-lg;
+  }
+
+  .cycling-popup .leaflet-popup-content-wrapper {
+    @apply border-s-4 border-(--brand-1);
+  }
+
+  .running-popup .leaflet-popup-content-wrapper {
+    @apply border-s-4 border-(--brand-2);
+  }
+
+  .you-are-here-popup .leaflet-popup-content-wrapper {
+    @apply rounded-xl shadow-sky-600 border-s-4 border-(--brand-3);
+  }
+
+  .you-are-here-popup .leaflet-popup-content {
+    @apply text-white font-bold text-center;
+  }
+}

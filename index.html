@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mapty App</title>
+    <meta name="description" content="Mapty App - An advanced workout tracker - An advanced workout tracker">
+    <link rel="canonical" href="https://ralitsavoronevska.github.io/mapty-app/">
+    <meta name="theme-color" content="#00c46a">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ralitsavoronevska.github.io/mapty-app/">
+    <meta property="og:title" content="Mapty App">
+    <meta property="og:description" content="Mapty App - An advanced workout tracker">
+    <meta property="og:image" content="https://ralitsavoronevska.github.io/mapty-app/dist/assets/mapty-app-desktop-preview.png">
+    <meta property="og:image:alt" content="Mapty App - An advanced workout tracker">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ralitsavoronevska.github.io/mapty-app/">
+    <meta name="twitter:title" content="Mapty App">
+    <meta name="twitter:description" content="Mapty App - An advanced workout tracker">
+    <meta name="twitter:image" content="https://ralitsavoronevska.github.io/mapty-app/dist/assets/mapty-app-desktop-preview.png">
+    <meta name="twitter:image:alt" content="Mapty App - An advanced workout tracker">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicons/android-chrome.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" sizes="48x48" href="assets/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+
+    <!-- Preconnect to tile servers (faster tile loading) -->
+    <link rel="preconnect" href="https://a.tile.openstreetmap.org">
+    <link rel="preconnect" href="https://b.tile.openstreetmap.org">
+    <link rel="preconnect" href="https://c.tile.openstreetmap.org">
+
+    <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+
+    <!-- Preload Critical Above-Fold Resources -->
+    <link rel="preload" href="assets/logo.png" as="image" type="image/png" fetchpriority="high">
+
+    <!-- Noscript Fallback for Font -->
+    <noscript>
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    </noscript>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
