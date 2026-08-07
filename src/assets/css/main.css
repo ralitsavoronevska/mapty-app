@@ -1,0 +1,163 @@
+@import 'tailwindcss';
+
+:root {
+  --brand-1: #ffb545;
+  --brand-2: #00c46a;
+  --brand-3: #3b82f6;
+
+  --dark-1: #2d3439;
+  --dark-2: #42484d;
+  --dark-3: #525960;
+}
+
+@layer utilities {
+  .scrollbar-custom::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    @apply bg-(--dark-1) border-3 border-transparent;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    @apply bg-(--brand-2) rounded-md;
+  }
+}
+
+@layer components {
+  main {
+    @apply flex flex-col h-screen bg-gray-900 text-white lg:flex-row overflow-hidden;
+  }
+
+  aside {
+    @apply w-full bg-(--dark-1) p-3 flex flex-col overflow-y-auto lg:w-125 lg:p-8 lg:h-full;
+  }
+
+  .logo {
+    @apply h-10 mx-auto mb-3 md:h-14;
+  }
+
+  .workouts-list {
+    @apply max-h-[20vh] md:max-h-[15vh] xl:max-h-[80vh] overflow-y-auto space-y-2 flex-1;
+  }
+
+  .workout-item {
+    @apply relative bg-(--dark-2) rounded-lg p-3 cursor-pointer hover:bg-(--dark-3) transition;
+  }
+
+  .running-border {
+    @apply border-l-4 border-(--brand-3);
+  }
+
+  .cycling-border {
+    @apply border-l-4 border-(--brand-2);
+  }
+
+  .you-are-here-border {
+    @apply border-l-4 border-(--brand-1);
+  }
+
+  .clear-all-workouts {
+    @apply text-xs md:text-lg mt-3 bg-red-600 hover:bg-red-700 text-white font-bold py-1 lg:py-3 lg:px-6 rounded-lg transition;
+  }
+
+  .map-view-container {
+    @apply flex-1 relative;
+  }
+
+  .map-view-component {
+    @apply absolute inset-0;
+  }
+
+  .map-view-content {
+    @apply h-full w-full;
+  }
+
+  .my-location-btn {
+    @apply absolute bottom-18 md:bottom-4 right-4 z-1000 bg-(--dark-1) shadow-lg rounded-full p-3 hover:bg-(--dark-2) transition;
+  }
+
+  .my-location-svg {
+    @apply h-6 w-6 text-(--brand-2);
+  }
+
+  .map-controls {
+    @apply absolute bottom-4 left-4 z-1000 flex items-center gap-2 bg-black/90 p-2 rounded-lg;
+  }
+
+  #workout-type {
+    option {
+      @apply bg-black text-white;
+    }
+  }
+
+  .simulation-controls {
+    @apply absolute bottom-17 left-4 z-1000 flex items-center gap-2 bg-black/90 p-2 rounded-lg;
+  }
+
+  .sim-btn {
+    @apply bg-gray-700 hover:bg-gray-600 text-white text-xs font-bold px-3 py-2 rounded-lg transition;
+  }
+
+  .sim-btn.active {
+    @apply bg-blue-600 hover:bg-blue-500;
+  }
+
+  .start-tracking-btn {
+    @apply bg-green-500 hover:bg-green-600 disabled:bg-gray-500 disabled:cursor-not-allowed
+         text-white text-xs font-bold px-3 py-2 rounded-lg transition;
+  }
+
+  .stop-tracking-btn {
+    @apply bg-red-500 hover:bg-red-600 text-white text-xs font-bold px-3 py-2 rounded-lg transition;
+  }
+
+  .delete-workout-btn {
+    @apply absolute top-3 right-3 border-none bg-transparent text-white text-lg leading-none cursor-pointer p-1;
+    /* position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    border: none;
+    background: transparent;
+    color: #fef2f2;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.1rem 0.35rem; */
+  }
+
+  .delete-workout-btn:hover {
+    color: #fca5a5;
+  }
+
+  .permanent-workout-popup .leaflet-popup-content-wrapper,
+  .you-are-here-popup .leaflet-popup-content-wrapper,
+  .permanent-workout-popup .leaflet-popup-tip,
+  .you-are-here-popup .leaflet-popup-tip {
+    @apply bg-(--dark-2)! text-white!;
+  }
+
+  .permanent-workout-popup .leaflet-popup-content-wrapper {
+    @apply text-xs font-semibold shadow-lg;
+  }
+
+  .cycling-popup .leaflet-popup-content-wrapper {
+    @apply border-s-4 border-(--brand-2);
+  }
+
+  .running-popup .leaflet-popup-content-wrapper {
+    @apply border-s-4 border-(--brand-3);
+  }
+
+  .you-are-here-popup .leaflet-popup-content-wrapper {
+    @apply rounded-xl shadow-sky-600 border-s-4 border-(--brand-1);
+  }
+
+  .you-are-here-popup .leaflet-popup-content {
+    @apply text-white font-bold text-center;
+  }
+
+  .live-user-marker div {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9);
+  }
+}
